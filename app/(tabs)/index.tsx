@@ -1,3 +1,4 @@
+import ProfileCard from "@/components/ProfileCard";
 import { ScrollView, StyleSheet } from "react-native";
 
 const USERS_DATA = [
@@ -11,11 +12,25 @@ const USERS_DATA = [
 
 export default function HomeScreen() {
   return (
-      <ScrollView>
-        { /* Render the list of users using the UserItem component */ }
-      </ScrollView>
+      <ScrollView style={styles.container}>
+        {USERS_DATA.map((user) => (
+          <ProfileCard
+          key={user.id}
+          name={user.nom}
+          jobTitle={user.email}
+          imageUrl={`https://picsum.photos/200/200?random=${user.id}`}
+          />
+
+
+
+        ))}
+    </ScrollView>
   );
 }
+
+
+
+
 
 const styles = StyleSheet.create({
   container: {
